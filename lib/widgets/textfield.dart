@@ -18,6 +18,7 @@ class AppTextfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
             width: 450,
+            
             child: TextFormField(
               decoration: InputDecoration(
                 prefixIcon: Icon(icon, color: Colors.grey, size: 25,),

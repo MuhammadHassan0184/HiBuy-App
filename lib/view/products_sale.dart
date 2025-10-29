@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hibuy/config/colors.dart';
+import 'package:hibuy/view/mainscreens/home.dart';
 import 'package:hibuy/widgets/cards.dart';
 import 'package:hibuy/widgets/textfield.dart';
 
@@ -35,8 +36,8 @@ class ProductsSale extends StatelessWidget {
                   child: AppTextfield(icon: Icons.search, lable: "Search Product"),
                   ),
                 SizedBox(width: 5,),
-                IconButton(onPressed: (){}, icon: Icon(Icons.switch_access_shortcut_add_outlined, size: 30, color: Colors.grey,)),
-                IconButton(onPressed: (){}, icon: Icon(Icons.filter_alt_outlined, size: 35, color: Colors.grey,)),
+                CustomIconButton(icon: Icons.switch_access_shortcut_add_outlined, onTap: (){}),
+                CustomIconButton(icon: Icons.filter_alt_outlined, onTap: (){}),
               ],),
               SizedBox(height: 20),
               Row(

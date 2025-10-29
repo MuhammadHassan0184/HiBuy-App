@@ -1,14 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hibuy/routes/routes.dart';
-import 'package:hibuy/view/home.dart';
+import 'package:flutter/material.dart';
 import 'package:hibuy/view/login.dart';
-import 'package:hibuy/view/pakage_details.dart';
-import 'package:hibuy/view/products_sale.dart';
-import 'package:hibuy/view/splash.dart';
-import 'package:hibuy/view/store.dart';
-
-
 
 
 
@@ -28,12 +21,27 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
 
       // home: Splash(),
-      // home: Login(),
+      home: Login(),
       // home: Signup(),
       // home: Home(),
       // home: ProductsSale(),
       // home: PakageDetails(),
-      home: Store(),
+      // home: Store(),
+      // home: Review(),
+      // home: Buynow(),
+      // home: Selectadress(),
+      // home: Addadress(),
+      // home: Cart(),
+      // home: Checkout(),
+      // home: Notification(),
+      // home: NotificationPromo(),
+      // home: Chat(),
+      // home: Account(),
+      // home: MyOrders(),
+      // home: OrderDetails(),
+      // home: ContactUs(),
+      // home: AboutUs(),
+      // home: SupportCenter(),
 
 
       theme: ThemeData(

@@ -57,6 +57,7 @@ class Categories extends StatelessWidget {
           onTap: () {
             
           },
+          borderRadius: BorderRadius.circular(100),
           child: Container(
             clipBehavior: Clip.antiAlias,
             width: 55,

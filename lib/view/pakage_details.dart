@@ -237,6 +237,7 @@ class PakageDetails extends StatelessWidget {
                       color: AppColors.grey,
                     )
                   ),
+                  // store Name--------------
                   child: Row(
                     children: [
                       Container(
@@ -269,13 +270,16 @@ class PakageDetails extends StatelessWidget {
                             ),
                             backgroundColor: AppColors.first,
                           ),
-                          onPressed: (){}, 
+                          onPressed: (){
+                            Get.toNamed("/Store");
+                          }, 
                           child: Text("Visit Store", style: TextStyle(color: Colors.white),)
                           ),
                       ),
                     ],
                   ),
                 ),
+                // rating Review-------------------
                 SizedBox(height: 15,),
                 Container(
                   padding: EdgeInsets.all(10),
@@ -302,7 +306,9 @@ class PakageDetails extends StatelessWidget {
                           Icon(Icons.star, color: Colors.amber,),
                           Icon(Icons.star, color: Colors.amber,),
                           Icon(Icons.star, color: Colors.amber,),
-                          IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward_ios, size: 20,))
+                          IconButton(onPressed: (){
+                            Get.toNamed("/Review");
+                          }, icon: Icon(Icons.arrow_forward_ios, size: 20,))
                         ],
                       ),
                       Divider(color: AppColors.grey,),
@@ -437,7 +443,7 @@ class PakageDetails extends StatelessWidget {
                         padding: const EdgeInsets.only(right: 275),
                         child: Text("You might also like", style: TextStyle(fontWeight: FontWeight.bold, fontSize:20),),
                       ),
-                      // SizedBox(height: 20,),
+                      // ProductGridview----------------
                       Padding(
                 padding: const EdgeInsets.all(20),
                 child: SizedBox(
@@ -493,7 +499,7 @@ class PakageDetails extends StatelessWidget {
                     SizedBox(width: 50,),
                     InkWell(
                       onTap: () {
-                        
+                        Get.toNamed("/Buynow");
                       },
                       child: Container(
                         width: 200,
