@@ -1,11 +1,9 @@
-
-import 'package:flutter/material.dart';
 import 'package:hibuy/config/colors.dart';
+import 'package:flutter/material.dart';
 
 class CustomBottomBar extends StatelessWidget {
   final int currentPageindex;
-  final ValueChanged<int> onTap; // <-- callback function
-
+  final ValueChanged<int> onTap;
   const CustomBottomBar({
     super.key,
     required this.currentPageindex,
@@ -15,13 +13,13 @@ class CustomBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      currentIndex: currentPageindex,
       type: BottomNavigationBarType.fixed,
       fixedColor: AppColors.first,
       unselectedItemColor: Colors.grey,
-      unselectedFontSize: 17,
-      iconSize: 40,
-      currentIndex: currentPageindex,
-      onTap: onTap, // 👈 use callback here
+      iconSize: 28,
+      unselectedFontSize: 16,
+      onTap: onTap, 
       items: const [
         BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: "Home"),
         BottomNavigationBarItem(

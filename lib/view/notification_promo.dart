@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:hibuy/config/colors.dart';
+import 'package:flutter/material.dart';
 
 class NotificationPromo extends StatelessWidget {
   const NotificationPromo({super.key});
@@ -10,19 +10,21 @@ class NotificationPromo extends StatelessWidget {
       appBar: AppBar(title: Text(
                   "Promotional",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),), centerTitle: true,),
-      body: Column(
-        children: [
-          SizedBox(height: 10),
-          titleinfo(),
-          SizedBox(height: 15),
-          titleinfo(),
-          SizedBox(height: 15),
-          titleinfo(),
-          SizedBox(height: 15),
-          titleinfo(),
-          SizedBox(height: 15),
-          titleinfo(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: 10),
+            titleinfo(),
+            SizedBox(height: 15),
+            titleinfo(),
+            SizedBox(height: 15),
+            titleinfo(),
+            SizedBox(height: 15),
+            titleinfo(),
+            SizedBox(height: 15),
+            titleinfo(),
+          ],
+        ),
       ),
     );
   }

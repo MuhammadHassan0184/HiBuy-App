@@ -1,6 +1,5 @@
-
-import 'package:flutter/material.dart';
 import 'package:hibuy/config/colors.dart';
+import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class Button extends StatelessWidget {
@@ -11,7 +10,7 @@ class Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-            width: 450,
+            width: 455,
             height: 60,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -24,7 +23,6 @@ class Button extends StatelessWidget {
           );
   }
 }
-
 
 // ignore: must_be_immutable
 class Button2 extends StatelessWidget {

@@ -1,40 +1,24 @@
-
-
+import 'package:hibuy/config/utils/formatting.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class AppTextfield extends StatelessWidget {
-  final IconData ? icon;
   final String lable;
-  
-    const AppTextfield({
-    super.key,
-     this.icon,
-    required this.lable,
-    }
-    );
+  final IconData? prefixIcon;
+  const AppTextfield({super.key, required this.lable, this.prefixIcon});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-            width: 450,
-            
-            child: TextFormField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(icon, color: Colors.grey, size: 25,),
-                hint: Text(lable, style: TextStyle(color: Colors.grey, ),),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(5), 
-                  borderSide: BorderSide(color: const Color(0xFFE4E2E2),)
-                  ),
-                
-              ),
-            ),
-          );
+    return TextFormField(
+      decoration: InputDecoration(
+        prefixIcon: prefixIcon == null ? null : Icon(prefixIcon, color: Colors.grey, size: 20),
+        hint: Text(lable, style: TextStyle(color: Colors.grey)),
+        enabledBorder: myinputborderStyle(),
+        focusedBorder: myinputborderStyle(true),
+      ),
+    );
   }
 }
-
-
 
 class VisableTextfield extends StatefulWidget {
   final String label;
@@ -59,51 +43,28 @@ class _VisableTextfieldState extends State<VisableTextfield> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 450,
-      child: TextFormField(
-        obscureText: showPass,
-        validator: widget.validation, // validation function used here
-        decoration: InputDecoration(
-          hintText: widget.label, // use widget.label instead of lable
-          hintStyle: const TextStyle(color: Colors.grey),
-          prefixIcon: Icon(widget.icon, color: Colors.grey, size: 25),
-          suffixIcon: IconButton(
-            onPressed: () {
-              setState(() {
-                showPass = !showPass;
-              });
-            },
-            icon: Icon(
-              showPass ? Icons.visibility_sharp : Icons.visibility_off,
-              color: Colors.grey,
-              size: 25,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
-            borderSide: const BorderSide(color: Color(0xFFE4E2E2)),
+    return TextFormField(
+      obscureText: showPass,
+      validator: widget.validation, // validation function used here
+      decoration: InputDecoration(
+        hintText: widget.label, // use widget.label instead of lable
+        hintStyle: const TextStyle(color: Colors.grey),
+        prefixIcon: Icon(widget.icon, color: Colors.grey, size: 20),
+        suffixIcon: IconButton(
+          onPressed: () {
+            setState(() {
+              showPass = !showPass;
+            });
+          },
+          icon: Icon(
+            showPass ? Icons.visibility_sharp : Icons.visibility_off,
+            color: Colors.grey,
+            size: 20,
           ),
         ),
+        enabledBorder: myinputborderStyle(),
+        focusedBorder: myinputborderStyle(true),
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

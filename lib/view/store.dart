@@ -1,13 +1,15 @@
-
-
-import 'package:flutter/material.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:hibuy/view/presentation/home.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:hibuy/widgets/visit_store.dart';
+import 'package:hibuy/widgets/textfield.dart';
 import 'package:hibuy/config/colors.dart';
 import 'package:hibuy/widgets/cards.dart';
-import 'package:hibuy/widgets/textfield.dart';
+import 'package:flutter/material.dart';
 
 class Store extends StatelessWidget {
   const Store({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,125 +17,90 @@ class Store extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 30,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                    IconButton(
-                      onPressed: (){
-                        // Get.offNamed("/Home");
-                      }, 
-                      icon: Icon(Icons.arrow_back, size: 30,)),
-                      SizedBox(width: 5,),
-                    SizedBox(
-                      width: 360,
-                      child: AppTextfield(icon: Icons.search, lable: "Search in Store"),
-                      ),
-                    SizedBox(width: 5,),
-                    IconButton(onPressed: (){}, icon: Icon(Icons.settings, size: 30,)),
-                  ],),
-                  // Store Name-------------
-                  SizedBox(height: 15,),
-                  Container(
-                    padding: EdgeInsets.all(10),
-                    width: 450,
-                    height: 90,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: AppColors.grey,
-                      )
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 85,
-                          height: 70,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Image.asset("assets/lorem1.png", fit: BoxFit.fill,),
-                        ),
-                        SizedBox(width: 10,),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("Store Name", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
-                            SizedBox(height: 7,),
-                            Text("70% Positive Seller Ratings", style: TextStyle(color: const Color(0xFF8A8A8A), fontSize: 12),),
-                          ],
-                        ),
-                        SizedBox(width: 130,),
-                        IconButton(onPressed: (){}, icon: Icon(Icons.chat_outlined, size: 30,))
-                      ],
-                    ),
-                  ),
-                  // Cards-----------
-                  SizedBox(height: 20),
-                Row(
+            Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    InkWell(
-                      onTap: () {
-                        
-                      },
-                      child: Card(
-                        color: AppColors.first,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadiusGeometry.circular(20),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 25, right: 25, top: 3, bottom: 3),
-                          child: Text("Store", style: TextStyle(color: Colors.white, fontSize: 19),),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 15,),
-                    InkWell(
-                      onTap: () {
-                        
-                      },
-                      child: Card(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadiusGeometry.circular(20),
-                          side: BorderSide(
-                            color: AppColors.grey
-                          )
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 18, right: 18, top: 3, bottom: 3),
-                          child: Text("Popular Products", style: TextStyle( fontSize: 19, fontWeight: FontWeight.bold),),
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 15,),
-                    InkWell(
-                      onTap: () {
-                        
-                      },
-                      child: Card(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadiusGeometry.circular(20),
-                          side: BorderSide(
-                            color: AppColors.grey
-                          )
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 25, right: 25, top: 3, bottom: 3),
-                          child: Text("Offers", style: TextStyle( fontSize: 19, fontWeight: FontWeight.bold),),
+                  IconButton(
+                    onPressed: (){
+                      Get.offNamed("/PakageDetails");
+                    }, 
+                    icon: Icon(Icons.arrow_back, size: 30,)),
+                    SizedBox(width: 5,),
+                  Expanded(child: AppTextfield(prefixIcon: Icons.search, lable: "Search in Store")),
+                  SizedBox(width: 5,),
+                  IconButton(onPressed: (){}, icon: Icon(Icons.settings, size: 30,)),
+                ],),
+                  // Store Name-------------
+                  SizedBox(height: 15,),
+                  VisitStore(),
+                  // Cards-----------
+                  SizedBox(height: 20),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          
+                        },
+                        child: Card(
+                          color: AppColors.first,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadiusGeometry.circular(20),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 25, right: 25, top: 3, bottom: 3),
+                            child: Text("Store", style: TextStyle(color: Colors.white, fontSize: 19),),
+                          ),
                         ),
                       ),
-                    ),
-                    
-                  ],
+                      SizedBox(width: 15,),
+                      InkWell(
+                        onTap: () {
+                          
+                        },
+                        child: Card(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadiusGeometry.circular(20),
+                            side: BorderSide(
+                              color: AppColors.grey
+                            )
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 18, right: 18, top: 3, bottom: 3),
+                            child: Text("Popular Products", style: TextStyle( fontSize: 19, fontWeight: FontWeight.bold),),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 15,),
+                      InkWell(
+                        onTap: () {
+                          
+                        },
+                        child: Card(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadiusGeometry.circular(20),
+                            side: BorderSide(
+                              color: AppColors.grey
+                            )
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 25, right: 25, top: 3, bottom: 3),
+                            child: Text("Offers", style: TextStyle( fontSize: 19, fontWeight: FontWeight.bold),),
+                          ),
+                        ),
+                      ),
+                      
+                    ],
+                  ),
                 ),
                 // banner------------
                 SizedBox(height: 20),
                 Container(
-                  width: 450,
+                  margin: EdgeInsets.symmetric(horizontal: 15),
                   height: 180,
                   clipBehavior: Clip.antiAlias,
                   decoration: BoxDecoration(
@@ -144,20 +111,9 @@ class Store extends StatelessWidget {
                 ),
                 // latest Offers--------------
                 SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Latest Offers', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21),),              
-                    SizedBox(width: 190),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        side: BorderSide(color: const Color(0xFFE4E2E2))
-                      ),
-                      onPressed: (){}, 
-                      child: Text("View All", style: TextStyle( fontSize: 17, fontWeight: FontWeight.bold),),
-                      ) 
-                  ],
+                Padding(
+                 padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: LabelWithAction(label: 'Latest Offers', onAction: () {}),
                 ),
                 SizedBox(height: 20,),
                 SingleChildScrollView(
@@ -182,20 +138,9 @@ class Store extends StatelessWidget {
                 ),
                 // popular products-----------
                 SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('Popular Products', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 21),),              
-                    SizedBox(width: 170),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        side: BorderSide(color: const Color(0xFFE4E2E2))
-                      ),
-                      onPressed: (){}, 
-                      child: Text("View All", style: TextStyle( fontSize: 17, fontWeight: FontWeight.bold),),
-                      ) 
-                  ],
+                Padding(
+                 padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: LabelWithAction(label: 'Popular Products', onAction: () {}),
                 ),
                 SizedBox(height: 20,),
                 SingleChildScrollView(
@@ -220,29 +165,29 @@ class Store extends StatelessWidget {
                 ),
                 // Store Cards Banner---------
                 SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      width: 220,
-                      height: 220,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10)
-                      ),
-                      child: Image.asset("assets/storeBannerCard1.png", fit: BoxFit.fill,),
-                    ),
-                    SizedBox(width: 20,),
-                    Container(
-                      width: 220,
-                      height: 220,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10)
-                      ),
-                      child: Image.asset("assets/storeBannerCard2.png", fit: BoxFit.fill,),
-                    ),
-                  ],
+                Wrap(
+                  runSpacing: 10,
+                  spacing: 10,
+                  children:[
+                     Container(
+                       width: 220,
+                       height: 220,
+                       clipBehavior: Clip.antiAlias,
+                       decoration: BoxDecoration(
+                         borderRadius: BorderRadius.circular(10)
+                       ),
+                       child: Image.asset("assets/storeBannerCard1.png", fit: BoxFit.fill,),
+                     ),
+                     SizedBox(width: 20,),
+                     Container(
+                       width: 220,
+                       height: 220,
+                       clipBehavior: Clip.antiAlias,
+                       decoration: BoxDecoration(
+                         borderRadius: BorderRadius.circular(10)
+                       ),
+                       child: Image.asset("assets/storeBannerCard2.png", fit: BoxFit.fill,),
+                     ),]
                 ),
 
                 // productsGridview----------

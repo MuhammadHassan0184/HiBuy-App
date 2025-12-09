@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/utils.dart';
 import 'package:hibuy/config/colors.dart';
+import 'package:flutter/material.dart';
+import 'package:get/utils.dart';
 
 class Cartbuds extends StatefulWidget {
   const Cartbuds({super.key});
@@ -15,7 +15,7 @@ class _CartbudsState extends State<Cartbuds> {
   @override
   Widget build(BuildContext context) {
     return Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.only(top: 10, bottom: 10 , right: 7),
               margin: EdgeInsets.symmetric(horizontal: 15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -25,15 +25,19 @@ class _CartbudsState extends State<Cartbuds> {
               ),
               child: Row(
                 children: [
-                  Checkbox(
-                    value: isAgree, onChanged: (value){
-                    setState(() {
-                      isAgree = !isAgree;
-                    });
-                  }),
+                  SizedBox(
+                    width: 30,
+                    height: 30,
+                    child: Checkbox(
+                      value: isAgree, onChanged: (value){
+                      setState(() {
+                        isAgree = !isAgree;
+                      });
+                    }),
+                  ),
                   Container(
-                          width: 120,
-                          height: 120,
+                          width: 110,
+                          height: 110,
                           clipBehavior: Clip.antiAlias,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10)
@@ -41,60 +45,62 @@ class _CartbudsState extends State<Cartbuds> {
                           child: Image.asset("assets/image1.png", fit: BoxFit.fill,),
                         ),
                         SizedBox(width: 10,),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Airpods Pro Wireless Earbuds", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+                          Text("5.0", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
+                          SizedBox(height: 5,),
+                          Text("Color Family: Black, Size/Weight: 2kg", style: TextStyle(color: Colors.grey ,fontWeight: FontWeight.w500, fontSize: 13),),
+                          SizedBox(height: 5,),
+                          Row(
+                            children: [
+                              Text("Rs. 120.25", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
+                              Spacer(),
+                              Row(
                           children: [
-                            Text("Airpods Pro Wireless Earbuds", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
-                        Text("5.0", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
-                        SizedBox(height: 5,),
-                        Text("Color Family: Black, Size/Weight: 2kg", style: TextStyle(color: Colors.grey ,fontWeight: FontWeight.w500, fontSize: 13),),
-                        SizedBox(height: 5,),
-                        Row(
-                          children: [
-                            Text("Rs. 120.25", style: TextStyle(fontWeight: FontWeight.bold,),),
-                            Row(
-                        children: [
-                          SizedBox(width: 60,),
-                          Text("Qty:  ", style: TextStyle(color: Colors.grey ,fontWeight: FontWeight.bold, fontSize: 17),),
-                          
-                          SizedBox(
-                            width: 25,
-                            height: 25,
-                            child: IconButton(
-                              style: ElevatedButton.styleFrom(
-                                side: BorderSide(
-                                  color: AppColors.grey
+                            Text("Qty: ", style: TextStyle(color: Colors.grey ,fontWeight: FontWeight.bold, fontSize: 15),),
+                            
+                            SizedBox(
+                              width: 24,
+                              height: 24,
+                              child: IconButton(
+                                style: ElevatedButton.styleFrom(
+                                  side: BorderSide(
+                                    color: AppColors.grey
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5)
+                                  )
                                 ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5)
-                                )
-                              ),
-                              onPressed: (){}, 
-                              icon: Icon(Icons.remove, size: 10,)),
-                          ),
-                          SizedBox(width: 10,),
-                          Text("2", style: TextStyle(color:const Color(0xFF8A8A8A), fontWeight: FontWeight.w600),),
-                          SizedBox(width: 10,),
-                          SizedBox(
-                            width: 25,
-                            height: 25,
-                            child: IconButton(
-                              style: ElevatedButton.styleFrom(
-                                side: BorderSide(
-                                  color: AppColors.grey
+                                onPressed: (){}, 
+                                icon: Icon(Icons.remove, size: 10,)),
+                            ),
+                            SizedBox(width: 5,),
+                            Text("2", style: TextStyle(color:const Color(0xFF8A8A8A), fontWeight: FontWeight.w600),),
+                            SizedBox(width: 5,),
+                            SizedBox(
+                              width: 24,
+                              height: 24,
+                              child: IconButton(
+                                style: ElevatedButton.styleFrom(
+                                  side: BorderSide(
+                                    color: AppColors.grey
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5)
+                                  )
                                 ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5)
-                                )
-                              ),
-                              onPressed: (){}, 
-                              icon: Icon(Icons.add, size: 10,)),
+                                onPressed: (){}, 
+                                icon: Icon(Icons.add, size: 10,)),
+                            ),
+                          ],
+                                                ),
+                            ],
                           ),
-                        ],
-                      ),
-                          ],
-                        ),
-                          ],
+                            ],
+                          ),
                         ),
                 ],
               ),
@@ -219,7 +225,7 @@ class OrdersCard extends StatelessWidget {
                         Icon(Icons.local_shipping_rounded),
                         SizedBox(width: 10,),
                         Text("Shop Name", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-                        SizedBox(width: 190,),
+                        Spacer(),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
@@ -246,23 +252,25 @@ class OrdersCard extends StatelessWidget {
                                 child: Image.asset("assets/image1.png", fit: BoxFit.fill,),
                               ),
                               SizedBox(width: 10,),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text("Airpods Pro Wireless Earbuds", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
-                              Text("5.0", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
-                              SizedBox(height: 5,),
-                              Text("Color Family: Black, Size/Weight: 2kg", style: TextStyle(color: Colors.grey ,fontWeight: FontWeight.w500, fontSize: 13),),
-                              SizedBox(height: 5,),
-                              Row(
-                                children: [
-                                  Text("Qty:  ", style: TextStyle(color: Colors.grey ,fontWeight: FontWeight.bold, fontSize: 17),),
-                                  SizedBox(width: 170,),
-                                  Text("Rs. 120.25", style: TextStyle(fontWeight: FontWeight.bold,),),
-                                  
-                                ],
-                              ),
-                                ],
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("Airpods Pro Wireless Earbuds", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),),
+                                Text("5.0", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),),
+                                SizedBox(height: 3,),
+                                Text("Color Family: Black, Size/Weight: 2kg", style: TextStyle(color: Colors.grey ,fontWeight: FontWeight.w500, fontSize: 12),),
+                                SizedBox(height: 3,),
+                                Row(
+                                  children: [
+                                    Text("Qty:  ", style: TextStyle(color: Colors.grey ,fontWeight: FontWeight.bold, fontSize: 17),),
+                                    Spacer(),
+                                    Text("Rs. 120.25", style: TextStyle(fontWeight: FontWeight.bold,),),
+                                    
+                                  ],
+                                ),
+                                  ],
+                                ),
                               ),
                       ],
                     ),

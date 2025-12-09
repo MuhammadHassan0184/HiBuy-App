@@ -29,7 +29,7 @@ class OrderDetails extends StatelessWidget {
                           Icon(Icons.local_shipping_rounded),
                           SizedBox(width: 10,),
                           Text("Shop Name", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
-                          SizedBox(width: 190,),
+                          Spacer(),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
@@ -56,23 +56,25 @@ class OrderDetails extends StatelessWidget {
                                   child: Image.asset("assets/image1.png", fit: BoxFit.fill,),
                                 ),
                                 SizedBox(width: 10,),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text("Airpods Pro Wireless Earbuds", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
-                                Text("5.0", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
-                                SizedBox(height: 5,),
-                                Text("Color Family: Black, Size/Weight: 2kg", style: TextStyle(color: Colors.grey ,fontWeight: FontWeight.w500, fontSize: 13),),
-                                SizedBox(height: 5,),
-                                Row(
-                                  children: [
-                                    Text("Qty:  ", style: TextStyle(color: Colors.grey ,fontWeight: FontWeight.bold, fontSize: 17),),
-                                    SizedBox(width: 170,),
-                                    Text("Rs. 120.25", style: TextStyle(fontWeight: FontWeight.bold,),),
-                                    
-                                  ],
-                                ),
-                                  ],
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text("Airpods Pro Wireless Earbuds", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
+                                  Text("5.0", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
+                                  SizedBox(height: 5,),
+                                  Text("Color Family: Black, Size/Weight: 2kg", style: TextStyle(color: Colors.grey ,fontWeight: FontWeight.w500, fontSize: 13),),
+                                  SizedBox(height: 5,),
+                                  Row(
+                                    children: [
+                                      Text("Qty:  ", style: TextStyle(color: Colors.grey ,fontWeight: FontWeight.bold, fontSize: 17),),
+                                      Spacer(),
+                                      Text("Rs. 120.25", style: TextStyle(fontWeight: FontWeight.bold,),),
+                                      
+                                    ],
+                                  ),
+                                    ],
+                                  ),
                                 ),
                         ],
                       ),
@@ -148,58 +150,64 @@ class OrderDetails extends StatelessWidget {
                             children: [
                               Icon(Icons.event_note_sharp, size: 30, color: AppColors.first,),
                               SizedBox(height: 5,),
-                              Text("Order Placed", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),)
+                              Text("Order Placed", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),)
                             ],
                            ),
                            Column(
                             children: [
                               Icon(Icons.drive_folder_upload_outlined, size: 30, color: AppColors.first,),
                               SizedBox(height: 5,),
-                              Text("Packaging", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),)
+                              Text("Packaging", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),)
                             ],
                            ),
                            Column(
                             children: [
                               Icon(Icons.local_shipping_outlined, size: 30, color: AppColors.first,),
                               SizedBox(height: 5,),
-                              Text("On The Road", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),)
+                              Text("On The Road", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),)
                             ],
                            ),
                            Column(
                             children: [
                               Icon(Icons.delivery_dining_sharp, size: 30, color: AppColors.first,),
                               SizedBox(height: 5,),
-                              Text("Out For Delivery", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),)
+                              Text("Out For Delivery", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),)
                             ],
                            ),
                            Column(
                             children: [
                               Icon(Icons.handshake_outlined, size: 30, color: AppColors.first,),
                               SizedBox(height: 5,),
-                              Text("Delivered", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),)
+                              Text("Delivered", style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),)
                             ],
                            ),
                         ],
                       ),
                       Divider(color: AppColors.grey,),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      Theme(
+                        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                        child: ExpansionTile(
+                          title:  Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Order Activity", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                          ],
+                        ),
                         children: [
-                          Text("Order Activity", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
-                          IconButton(onPressed: (){}, icon: Icon(Icons.keyboard_arrow_up_outlined, size: 30,))
+                           OrderActivity(icon: Icons.check, title: "Your order has been delivered. Thank you for shopping at Clicon!", subtitle: "25 Dec, 2024 at 3:20 PM", color: Colors.lightGreen, bgcolor: const Color(0xFFE5EEDA),),
+                        SizedBox(height: 10,),
+                        OrderActivity(icon: Icons.check, title: "Our delivery man (Name Here) Has picked-up your order for delivery. ", subtitle: "25 Dec, 2024 at 3:20 PM", color: AppColors.first, bgcolor: const Color(0xFFB5DEFF),),
+                        SizedBox(height: 10,),
+                        OrderActivity(icon: Icons.location_on_outlined, title: "Your order has reached at last mile hub.", subtitle: "25 Dec, 2024 at 3:20 PM", color: AppColors.first, bgcolor: const Color(0xFFB5DEFF),),
+                        SizedBox(height: 10,),
+                        OrderActivity(icon: Icons.pageview_sharp, title: "Your order on the way to (last mile) hub.", subtitle: "25 Dec, 2024 at 3:20 PM", color: AppColors.first, bgcolor: const Color(0xFFB5DEFF),),
+                        SizedBox(height: 10,),
+                        OrderActivity(icon: Icons.check, title: "Your order is successfully verified.", subtitle: "25 Dec, 2024 at 3:20 PM", color: Colors.lightGreen, bgcolor: const Color(0xFFE5EEDA),),
+                        SizedBox(height: 10,),
+                        OrderActivity(icon: Icons.menu_book_sharp, title: "Your order has been confirmed.", subtitle: "25 Dec, 2024 at 3:20 PM", color: AppColors.first, bgcolor: const Color(0xFFB5DEFF),),
                         ],
+                        ),
                       ),
-                      OrderActivity(icon: Icons.check, title: "Your order has been delivered. Thank you for shopping at Clicon!", subtitle: "25 Dec, 2024 at 3:20 PM", color: Colors.lightGreen, bgcolor: const Color(0xFFE5EEDA),),
-                      SizedBox(height: 10,),
-                      OrderActivity(icon: Icons.check, title: "Our delivery man (Name Here) Has picked-up your order for delivery. ", subtitle: "25 Dec, 2024 at 3:20 PM", color: AppColors.first, bgcolor: const Color(0xFFB5DEFF),),
-                      SizedBox(height: 10,),
-                      OrderActivity(icon: Icons.location_on_outlined, title: "Your order has reached at last mile hub.", subtitle: "25 Dec, 2024 at 3:20 PM", color: AppColors.first, bgcolor: const Color(0xFFB5DEFF),),
-                      SizedBox(height: 10,),
-                      OrderActivity(icon: Icons.pageview_sharp, title: "Your order on the way to (last mile) hub.", subtitle: "25 Dec, 2024 at 3:20 PM", color: AppColors.first, bgcolor: const Color(0xFFB5DEFF),),
-                      SizedBox(height: 10,),
-                      OrderActivity(icon: Icons.check, title: "Your order is successfully verified.", subtitle: "25 Dec, 2024 at 3:20 PM", color: Colors.lightGreen, bgcolor: const Color(0xFFE5EEDA),),
-                      SizedBox(height: 10,),
-                      OrderActivity(icon: Icons.menu_book_sharp, title: "Your order has been confirmed.", subtitle: "25 Dec, 2024 at 3:20 PM", color: AppColors.first, bgcolor: const Color(0xFFB5DEFF),),
                     ],
                   ),
                 ),
@@ -245,7 +253,7 @@ class OrderDetails extends StatelessWidget {
                     Row(
                       children: [
                         Text("Delivery Fee", style: TextStyle(color: Colors.grey,),),
-                        SizedBox(width: 282,),
+                        Spacer(),
                         Text("Rs. 150", style: TextStyle(fontSize: 17,),),
                       ],
                     ),
@@ -253,7 +261,7 @@ class OrderDetails extends StatelessWidget {
                     Row(
                       children: [
                         Text("Items Total (1 item)", style: TextStyle(color: Colors.grey ,),),
-                        SizedBox(width: 232,),
+                        Spacer(),
                         Text("Rs. 829", style: TextStyle(fontSize: 17,),),
                       ],
                     ),
@@ -261,7 +269,7 @@ class OrderDetails extends StatelessWidget {
                     Row(
                       children: [
                         Text("Total", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
-                        SizedBox(width: 320,),
+                        Spacer(),
                         Text("Rs. 829", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
                         
                       ],

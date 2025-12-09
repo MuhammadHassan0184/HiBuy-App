@@ -1,11 +1,11 @@
-
-
-import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:hibuy/widgets/rating_review.dart';
+import 'package:hibuy/widgets/visit_store.dart';
+import 'package:hibuy/widgets/textfield.dart';
 import 'package:get/instance_manager.dart';
 import 'package:hibuy/config/colors.dart';
 import 'package:hibuy/widgets/cards.dart';
-import 'package:hibuy/widgets/textfield.dart';
+import 'package:flutter/material.dart';
 
 class PakageDetails extends StatelessWidget {
   const PakageDetails({super.key});
@@ -26,17 +26,14 @@ class PakageDetails extends StatelessWidget {
                     }, 
                     icon: Icon(Icons.arrow_back, size: 30,)),
                     SizedBox(width: 5,),
-                  SizedBox(
-                    width: 370,
-                    child: AppTextfield(icon: Icons.search, lable: "Search Product"),
-                    ),
+                  Expanded(child: AppTextfield(prefixIcon: Icons.search, lable: "Search Product")),
                   SizedBox(width: 5,),
                   IconButton(onPressed: (){}, icon: Icon(Icons.settings, size: 30,)),
                 ],),
                 SizedBox(height: 20,),
                 Container(
-                  width: 450,
-                  height: 400,
+                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  width: double.infinity,
                   clipBehavior: Clip.antiAlias,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10)
@@ -46,8 +43,8 @@ class PakageDetails extends StatelessWidget {
                 SizedBox(height: 20,),
                 Container(
                   padding: EdgeInsets.all(10),
-                  width: 450,
-                  height: 523,
+                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  // width: 450,
                   decoration: BoxDecoration(
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(10),
@@ -57,7 +54,6 @@ class PakageDetails extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      // SizedBox(height: 10,),
                       Row(
                         children: [
                           Text("Rs. 120.25", style: TextStyle(color: Colors.red, fontWeight: FontWeight.w900, fontSize: 22),),
@@ -68,23 +64,46 @@ class PakageDetails extends StatelessWidget {
                         ],
                       ),
                       Text("Airpods Air Pro 3rd Gen TWS Bluetooth 5.0 Apple", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
-                      Row(
-                        children: [
-                          Icon(Icons.star, color: Colors.orange,),
-                          SizedBox(width: 5,),
-                          Icon(Icons.star, color: Colors.orange,),
-                          SizedBox(width: 5,),
-                          Icon(Icons.star, color: Colors.orange,),
-                          SizedBox(width: 5,),
-                          Icon(Icons.star, color: Colors.orange,),
-                          SizedBox(width: 5,),
-                          Icon(Icons.star, color: Colors.orange,),
-                          SizedBox(width: 12,),
-                          Text("( 75 Review )", style: TextStyle(color: const Color(0xFF8A8A8A)),),
-                          SizedBox(width: 95,),
-                          IconButton(onPressed: (){}, icon: Icon(Icons.share, size: 25,)),
-                          SizedBox(width: 5,),
-                          IconButton(onPressed: (){}, icon: Icon(Icons.favorite_border, size: 27,)),
+                             Row(
+                         children: [
+                           // Stars (wrapped in a flexible row)
+                          Expanded(
+                           flex: 3,
+                           child: Wrap(
+                              spacing: 4,
+                              children: List.generate(
+                                5,
+                                (index) => Icon(Icons.star, color: Colors.orange, size: 20),
+                              ),
+                            ),
+                          ),
+                      
+                          // Reviews text
+                          Expanded(
+                            flex: 3,
+                            child: Text(
+                              "( 75 Reviews )",
+                              style: TextStyle(
+                                color: Color(0xFF8A8A8A),
+                                fontSize: 14,
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+
+                          Spacer(), // pushes buttons to the right
+
+                          // Share button
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.share, size: 22),
+                          ),
+
+                          // Favorite button
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.favorite_border, size: 25),
+                          ),
                         ],
                       ),
                       Row(
@@ -134,157 +153,138 @@ class PakageDetails extends StatelessWidget {
                           ),
                         ],
                       ),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Products Included", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
-                          IconButton(onPressed: (){}, icon: Icon(Icons.keyboard_arrow_up_sharp, size: 30,))
-                        ],
-                      ),
-                      Divider(color: AppColors.grey,),
-                      Row(
+                      // ---------------
+                      Theme(
+                        data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+                        child: ExpansionTile(
+                          title: Row(
                         
-                        children: [
-                          Container(
-                        width: 70,
-                        height: 70,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          color: Colors.amber,
-                          borderRadius: BorderRadius.circular(10)
+                          children: [
+                            Text("Products Included", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                          ],
                         ),
-                        child: Image.asset("assets/image3.png", fit: BoxFit.fill,),
-                      ),
-                      SizedBox(width: 12,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Lorem ipsum dolor sit amet.", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
-                          SizedBox(height: 5,),
-                          Text("Quantity:", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),)
-                        ],
-                      ),
-                      SizedBox(width: 60,),
-                      IconButton(onPressed: (){}, icon: Icon(Icons.visibility_outlined, size: 30,))
-                        ],
-                      ),
-                      Divider(color: AppColors.grey,),
-                      Row(
-                        
-                        children: [
-                          Container(
-                        width: 70,
-                        height: 70,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          color: Colors.amber,
-                          borderRadius: BorderRadius.circular(10)
+                          Divider(color: AppColors.grey,),
+                        ListTile(
+                          leading:
+                           Container(
+                          // width: 70,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            color: Colors.amber,
+                            borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: Image.asset("assets/image3.png", fit: BoxFit.fill,),
                         ),
-                        child: Image.asset("assets/image4.png", fit: BoxFit.fill,),
-                      ),
-                      SizedBox(width: 12,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Lorem ipsum dolor sit amet.", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
-                          SizedBox(height: 5,),
-                          Text("Quantity:", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),)
-                        ],
-                      ),
-                      SizedBox(width: 60,),
-                      IconButton(onPressed: (){}, icon: Icon(Icons.visibility_outlined, size: 30,))
-                        ],
-                      ),
-                      Divider(color: AppColors.grey,),
-                      Row(
-                        
-                        children: [
-                          Container(
-                        width: 70,
-                        height: 70,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          color: Colors.amber,
-                          borderRadius: BorderRadius.circular(10)
+                        title:  Text("Lorem ipsum dolor sit amet.", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
+                        subtitle:  Text("Quantity:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
+                        trailing: IconButton(onPressed: (){}, icon: Icon(Icons.visibility_outlined, size: 30,)),
                         ),
-                        child: Image.asset("assets/image2.png", fit: BoxFit.fill,),
-                      ),
-                      SizedBox(width: 12,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Lorem ipsum dolor sit amet.", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),),
-                          SizedBox(height: 5,),
-                          Text("Quantity:", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),)
+                        Divider(color: AppColors.grey,),
+                        ListTile(
+                          leading:
+                           Container(
+                          // width: 70,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            color: Colors.amber,
+                            borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: Image.asset("assets/image4.png", fit: BoxFit.fill,),
+                        ),
+                        title:  Text("Lorem ipsum dolor sit amet.", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
+                        subtitle:  Text("Quantity:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
+                        trailing: IconButton(onPressed: (){}, icon: Icon(Icons.visibility_outlined, size: 30,)),
+                        ),
+                        Divider(color: AppColors.grey,),
+                        ListTile(
+                          leading:
+                           Container(
+                          // width: 70,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            color: Colors.amber,
+                            borderRadius: BorderRadius.circular(10)
+                          ),
+                          child: Image.asset("assets/image2.png", fit: BoxFit.fill,),
+                        ),
+                        title:  Text("Lorem ipsum dolor sit amet.", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
+                        subtitle:  Text("Quantity:", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
+                        trailing: IconButton(onPressed: (){}, icon: Icon(Icons.visibility_outlined, size: 30,)),
+                        ),
                         ],
+                          ),
                       ),
-                      SizedBox(width: 60,),
-                      IconButton(onPressed: (){}, icon: Icon(Icons.visibility_outlined, size: 30,))
-                        ],
-                      ),
+                      
                     ],
                   ),
                 ),
+                // ------
                 SizedBox(height: 15,),
                 Container(
-                  padding: EdgeInsets.all(10),
-                  width: 450,
-                  height: 90,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: AppColors.grey,
-                    )
-                  ),
-                  // store Name--------------
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 85,
-                        height: 70,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Image.asset("assets/lorem1.png", fit: BoxFit.fill,),
-                      ),
-                      SizedBox(width: 10,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Sold by", style: TextStyle(color: const Color(0xFF8A8A8A), fontSize: 12),),
-                          SizedBox(height: 4,),
-                          Text("Store Name", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),),
-                          SizedBox(height: 4,),
-                          Text("70% Positive Seller Ratings", style: TextStyle(color: const Color(0xFF8A8A8A), fontSize: 12),),
-                        ],
-                      ),
-                      SizedBox(width: 60,),
-                      SizedBox(
-                        height: 40,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5)
-                            ),
-                            backgroundColor: AppColors.first,
-                          ),
-                          onPressed: (){
-                            Get.toNamed("/Store");
-                          }, 
-                          child: Text("Visit Store", style: TextStyle(color: Colors.white),)
-                          ),
-                      ),
-                    ],
-                  ),
+                width: double.infinity,
+                height: 70,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: AppColors.grey
+                  )
                 ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        
+                      },
+                      child: Container(
+                        width: 160,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(30)
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.shopping_cart_outlined, color: Colors.white, size: 25,),
+                            SizedBox(width: 10,),
+                            Text("Add to Cart", style: TextStyle(color: Colors.white, fontSize: 19, fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Get.toNamed("/Buynow");
+                      },
+                      child: Container(
+                        width: 160,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: AppColors.first,
+                          borderRadius: BorderRadius.circular(30)
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(Icons.shopping_bag_outlined, color: Colors.white, size: 25,),
+                            SizedBox(width: 10,),
+                            Text("Buy Now", style: TextStyle(color: Colors.white, fontSize: 19, fontWeight: FontWeight.bold),),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+                SizedBox(height: 15,),
+                // store Name--------------
+                VisitStore(),
                 // rating Review-------------------
                 SizedBox(height: 15,),
                 Container(
                   padding: EdgeInsets.all(10),
-                  width: 450,
-                  height: 435,
+                  margin: EdgeInsets.symmetric(horizontal: 15),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
@@ -295,20 +295,18 @@ class PakageDetails extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Text("Ratings & Reviews", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                          Text("Ratings & Reviews", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
                           SizedBox(width: 5,),
-                          Text("(86)", style: TextStyle(fontSize: 20),),
-                          SizedBox(width: 25,),
-                          Text("4.3", style: TextStyle(fontSize: 20),),
+                          Text("(86)", style: TextStyle(fontSize: 17),),
+                          Spacer(),
+                          Text("4.3", style: TextStyle(fontSize: 17),),
                           SizedBox(width: 5,),
-                          Icon(Icons.star, color: Colors.amber,),
-                          Icon(Icons.star, color: Colors.amber,),
                           Icon(Icons.star, color: Colors.amber,),
                           Icon(Icons.star, color: Colors.amber,),
                           Icon(Icons.star, color: Colors.amber,),
                           IconButton(onPressed: (){
                             Get.toNamed("/Review");
-                          }, icon: Icon(Icons.arrow_forward_ios, size: 20,))
+                          }, icon: Icon(Icons.arrow_forward_ios, size: 15,))
                         ],
                       ),
                       Divider(color: AppColors.grey,),
@@ -324,27 +322,7 @@ class PakageDetails extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: 5,),
-                      Row(
-                        children: [
-                           Container(
-                            width: 320,
-                            height: 70,
-                            decoration: BoxDecoration(
-                            ),
-                            child: Text("Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iure minus error doloribus saepe natus...", style: TextStyle(fontSize: 17,),),
-                           ),
-                           SizedBox(width: 25,),
-                      Container(
-                        width: 70,
-                        height: 70,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10)
-                        ),
-                        child: Image.asset("assets/2025.png", fit: BoxFit.fill,),
-                      ),
-                        ],
-                      ),
+                      RatingReview(),
                       SizedBox(height: 5,),
                       Divider(color: AppColors.grey,),
                       Row(
@@ -359,27 +337,7 @@ class PakageDetails extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: 5,),
-                      Row(
-                        children: [
-                           Container(
-                            width: 320,
-                            height: 70,
-                            decoration: BoxDecoration(
-                            ),
-                            child: Text("Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iure minus error doloribus saepe natus...", style: TextStyle(fontSize: 17,),),
-                           ),
-                           SizedBox(width: 25,),
-                      Container(
-                        width: 70,
-                        height: 70,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10)
-                        ),
-                        child: Image.asset("assets/2025.png", fit: BoxFit.fill,),
-                      ),
-                        ],
-                      ),
+                      RatingReview(),
                       SizedBox(height: 5,),
                       Divider(color: AppColors.grey,),
                       Row(
@@ -394,35 +352,14 @@ class PakageDetails extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: 5,),
-                      Row(
-                        children: [
-                           Container(
-                            width: 320,
-                            height: 70,
-                            decoration: BoxDecoration(
-                            ),
-                            child: Text("Lorem ipsum dolor sit amet consectetur adipisicing elit. In, iure minus error doloribus saepe natus...", style: TextStyle(fontSize: 17,),),
-                           ),
-                           SizedBox(width: 25,),
-                      Container(
-                        width: 70,
-                        height: 70,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10)
-                        ),
-                        child: Image.asset("assets/2025.png", fit: BoxFit.fill,),
-                      ),
-                        ],
-                      ),
+                      RatingReview(),
                     ],
                   ),
                 ),
                 SizedBox(height: 15,),
                       Container(
                         padding: EdgeInsets.all(10),
-                        width: 450,
-                        height: 350,
+                        margin: EdgeInsets.symmetric(horizontal: 15),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
@@ -440,8 +377,12 @@ class PakageDetails extends StatelessWidget {
                       ),
                       SizedBox(height: 20,),
                       Padding(
-                        padding: const EdgeInsets.only(right: 275),
-                        child: Text("You might also like", style: TextStyle(fontWeight: FontWeight.bold, fontSize:20),),
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Row(
+                          children: [
+                            Text("You might also like", style: TextStyle(fontWeight: FontWeight.bold, fontSize:20),),
+                          ],
+                        ),
                       ),
                       // ProductGridview----------------
                       Padding(
@@ -460,65 +401,6 @@ class PakageDetails extends StatelessWidget {
                     itemBuilder: (context, index){
                       return AppCards(img: "assets/image4.png", label1: 'Airpods Pro Wireless Earbuds', label2: 'Bluetooth 5.0', label3: "By TechDad", label4: "(4.0)", label5: "&32.8", label6:"&28.85" );
                     }),
-                ),
-              ),
-      
-            
-              Container(
-                width: double.infinity,
-                height: 70,
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: AppColors.grey
-                  )
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        
-                      },
-                      child: Container(
-                        width: 200,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(30)
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.shopping_cart_outlined, color: Colors.white, size: 25,),
-                            SizedBox(width: 10,),
-                            Text("Add to Cart", style: TextStyle(color: Colors.white, fontSize: 19, fontWeight: FontWeight.bold),),
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 50,),
-                    InkWell(
-                      onTap: () {
-                        Get.toNamed("/Buynow");
-                      },
-                      child: Container(
-                        width: 200,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: AppColors.first,
-                          borderRadius: BorderRadius.circular(30)
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.shopping_bag_outlined, color: Colors.white, size: 25,),
-                            SizedBox(width: 10,),
-                            Text("Buy Now", style: TextStyle(color: Colors.white, fontSize: 19, fontWeight: FontWeight.bold),),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
               ),
           ],

@@ -1,7 +1,7 @@
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:flutter/material.dart';
 import 'package:hibuy/config/colors.dart';
+import 'package:flutter/material.dart';
 
 class Notification extends StatelessWidget {
   const Notification({super.key});

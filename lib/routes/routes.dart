@@ -1,27 +1,27 @@
 import 'package:hibuy/view/notification_promo.dart';
 import 'package:hibuy/view/pakage_details.dart';
-import 'package:hibuy/view/support_center.dart';
+import 'package:hibuy/view/manu/support_center.dart';
 import 'package:hibuy/view/order_details.dart';
 import 'package:hibuy/routes/routes_name.dart';
-import 'package:hibuy/view/products_sale.dart';
+import 'package:hibuy/view/presentation/products_sale.dart';
 import 'package:hibuy/view/selectadress.dart';
 import 'package:hibuy/view/notification.dart';
-import 'package:hibuy/view/contact_us.dart';
+import 'package:hibuy/view/manu/contact_us.dart';
 import 'package:hibuy/view/dashboard.dart';
-import 'package:hibuy/view/addadress.dart';
-import 'package:hibuy/view/my_orders.dart';
-import 'package:hibuy/view/about_us.dart';
+import 'package:hibuy/view/add_adress.dart';
+import 'package:hibuy/view/manu/my_orders.dart';
+import 'package:hibuy/view/manu/about_us.dart';
 import 'package:hibuy/view/checkout.dart';
-import 'package:hibuy/view/account.dart';
+import 'package:hibuy/view/presentation/account.dart';
 import 'package:get/route_manager.dart';
-import 'package:hibuy/view/review.dart';
-import 'package:hibuy/view/signup.dart';
-import 'package:hibuy/view/splash.dart';
+import 'package:hibuy/view/manu/review.dart';
+import 'package:hibuy/view/auth/signup.dart';
+import 'package:hibuy/view/auth/splash.dart';
 import 'package:hibuy/view/buynow.dart';
-import 'package:hibuy/view/login.dart';
+import 'package:hibuy/view/auth/login.dart';
 import 'package:hibuy/view/store.dart';
-import 'package:hibuy/view/chat.dart';
-import 'package:hibuy/view/cart.dart';
+import 'package:hibuy/view/presentation/chat.dart';
+import 'package:hibuy/view/presentation/cart.dart';
 
 class AppRoutes {
   static routes () => [

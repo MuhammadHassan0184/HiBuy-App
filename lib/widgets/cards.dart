@@ -1,9 +1,7 @@
-
-
-import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:hibuy/config/colors.dart';
+import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class AppCards extends StatelessWidget {
@@ -59,51 +57,49 @@ class AppCards extends StatelessWidget {
                   child: Text(label2, style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold),),
                 ),
                 SizedBox(height: 3,),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Text(label3, style: TextStyle(color: const Color(0xFFBDBCBC), fontSize: 10),),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 75),
-                      child: Text(label4, style: TextStyle(color: const Color(0xFFBDBCBC), fontSize: 10),),
-                    ),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    children: [
+                      Text(label3, style: TextStyle(color: const Color(0xFFBDBCBC), fontSize: 10),),
+                      Spacer(),
+                      Text(label4, style: TextStyle(color: const Color(0xFFBDBCBC), fontSize: 10),),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 5,),
-                Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Text(label5, style: TextStyle(color: Colors.grey, fontSize: 10),),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: Text(label6, style: TextStyle(color: Colors.green, fontSize: 13),),
-                    ),
-                    SizedBox(width: 32,),
-                    InkWell(
-                      onTap: () {
-                        Get.toNamed("/PakageDetails");
-                      },
-                      child: Container(
-                        width: 45,
-                        height: 25,
-                        decoration: BoxDecoration(
-                          color: AppColors.first,
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                          Icon(Icons.shopping_cart_outlined, size: 13, color: Colors.white,),
-                          SizedBox(width: 2,),
-                          Text('Add', style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),)
-                        ],),
+                Padding(
+                 padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    children: [
+                      Text(label5, style: TextStyle(color: Colors.grey, fontSize: 10),),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Text(label6, style: TextStyle(color: Colors.green, fontSize: 13),),
                       ),
-                    ),
-                  ],
+                      Spacer(),
+                      InkWell(
+                        onTap: () {
+                          Get.toNamed("/PakageDetails");
+                        },
+                        child: Container(
+                          width: 45,
+                          height: 25,
+                          decoration: BoxDecoration(
+                            color: AppColors.first,
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                            Icon(Icons.shopping_cart_outlined, size: 13, color: Colors.white,),
+                            SizedBox(width: 2,),
+                            Text('Add', style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),)
+                          ],),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -189,9 +185,9 @@ class AppCard2 extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 10),
                       child: Text(label6, style: TextStyle(color: Colors.green, fontSize: 13),),
                     ),
-                    SizedBox(width: 32,),
+                    Spacer(),
                     Padding(
-                      padding: const EdgeInsets.only(left: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Text(label6, style: TextStyle(color: Colors.grey, fontSize: 13),),
                     ),
                     

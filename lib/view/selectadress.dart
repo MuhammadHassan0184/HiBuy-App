@@ -11,19 +11,24 @@ class Selectadress extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Select Address", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),), centerTitle: true,),
-      body: Column(
-        children: [
-            SizedBox(height: 15,),
-            NameAndAdress(name: "Awais Ansari", address: "TheWebConcept Chenab Market, Madina Town Faisalabad TheWebConcept Chenab Market,Madina Town Faisalabad", contact: "+92 300 1234567, +92 300 1234567",),
-            SizedBox(height: 15,),
-            NameAndAdress(name: "Awais Ansari", address: "TheWebConcept Chenab Market, Madina Town Faisalabad TheWebConcept Chenab Market,Madina Town Faisalabad", contact: "+92 300 1234567, +92 300 1234567",),
-            SizedBox(height: 15,),
-            NameAndAdress(name: "Awais Ansari", address: "TheWebConcept Chenab Market, Madina Town Faisalabad TheWebConcept Chenab Market,Madina Town Faisalabad", contact: "+92 300 1234567, +92 300 1234567",),
-            SizedBox(height: 20,),
-            Button2(label: "Add New Address +", onPressed: (){
-              Get.toNamed("/Addadress");
-            }),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+              SizedBox(height: 15,),
+              NameAndAdress(name: "Awais Ansari", address: "TheWebConcept Chenab Market, Madina Town Faisalabad TheWebConcept Chenab Market,Madina Town Faisalabad", contact: "+92 300 1234567, +92 300 1234567",),
+              SizedBox(height: 15,),
+              NameAndAdress(name: "Awais Ansari", address: "TheWebConcept Chenab Market, Madina Town Faisalabad TheWebConcept Chenab Market,Madina Town Faisalabad", contact: "+92 300 1234567, +92 300 1234567",),
+              SizedBox(height: 15,),
+              NameAndAdress(name: "Awais Ansari", address: "TheWebConcept Chenab Market, Madina Town Faisalabad TheWebConcept Chenab Market,Madina Town Faisalabad", contact: "+92 300 1234567, +92 300 1234567",),
+              SizedBox(height: 20,),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Button2(label: "Add New Address +", onPressed: (){
+                  Get.toNamed("/Addadress");
+                }),
+              ),
+          ],
+        ),
       ),
     );
   }
@@ -57,7 +62,7 @@ class NameAndAdress extends StatelessWidget {
                   Row(
                     children: [
                       Text(name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),),
-                      SizedBox(width: 250,),
+                      Spacer(),
                       IconButton(onPressed: (){Get.toNamed("/Addadress");}, icon: Icon(Icons.edit_calendar_outlined, size: 25,)),
                     ],
                   ),

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:hibuy/config/colors.dart';
+import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class SupportCard extends StatelessWidget {
@@ -12,7 +12,6 @@ class SupportCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
                 padding: EdgeInsets.all(15),
-                margin: EdgeInsets.symmetric(horizontal: 15),
                 width: 220,
                 decoration: BoxDecoration(
                   border: Border.all(
