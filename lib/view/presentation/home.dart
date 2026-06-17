@@ -73,7 +73,7 @@ class HomeBody extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                child: Image.asset("assets/storebanner.png", fit: BoxFit.fill),
+                child: Image.asset("assets/storeBanner.png", fit: BoxFit.fill),
               ),
               // Banner 3
               Container(
